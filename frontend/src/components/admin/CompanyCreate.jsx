@@ -16,7 +16,7 @@ const CompanyCreate = () => {
     const dispatch = useDispatch();
     const registerNewCompany = async () => {
         try {
-            const res = await axios.post("https://webjob-ye4b.onrender.com/api/v1/cpmpany/register", {companyName}, {
+            const res = await axios.post("https://webjob-ye4b.onrender.com/api/v1/company/register", {companyName}, {
                 headers:{
                     'Content-Type':'application/json'
                 },
@@ -45,7 +45,7 @@ const CompanyCreate = () => {
                 <Input
                     type="text"
                     className="my-2"
-                    placeholder="JobHunt, Microsoft etc."
+                    placeholder="Enter your company name"
                     onChange={(e) => setCompanyName(e.target.value)}
                 />
                 <div className='flex items-center gap-2 my-10'>
