@@ -6,12 +6,24 @@ export const postJob = async (req, res) => {
         const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
         const userId = req.id;
 
-        if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
+        const missingFields = [];
+        if (!title) missingFields.push("title");
+        if (!description) missingFields.push("description");
+        if (!requirements) missingFields.push("requirements");
+        if (salary === undefined || salary === null || salary === "" || Number.isNaN(Number(salary))) missingFields.push("salary");
+        if (!location) missingFields.push("location");
+        if (!jobType) missingFields.push("jobType");
+        if (!experience && experience !== 0) missingFields.push("experience");
+        if (!position && position !== 0) missingFields.push("position");
+        if (!companyId || String(companyId).trim() === "") missingFields.push("companyId");
+
+        if (missingFields.length > 0) {
             return res.status(400).json({
-                message: "Somethin is missing.",
+                message: `Something is missing: ${missingFields.join(", ")}`,
                 success: false
-            })
-        };
+            });
+        }
+
         const job = await Job.create({
             title,
             description,

@@ -4,10 +4,14 @@ import FilterCard from './FilterCard'
 import Job from './Job';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import Footer from './shared/Footer';
+
+
 
 // const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Jobs = () => {
+
     const { allJobs, searchedQuery } = useSelector(store => store.job);
     const [filterJobs, setFilterJobs] = useState(allJobs);
 
@@ -25,17 +29,18 @@ const Jobs = () => {
     }, [allJobs, searchedQuery]);
 
     return (
+        
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5'>
-                <div className='flex gap-5'>
-                    <div className='w-20%'>
+            <div className='mx-auto mt-5 max-w-7xl px-4 sm:px-6 lg:px-8'>
+                <div className='flex flex-col gap-5 lg:flex-row'>
+                    <div className='w-full lg:w-72'>
                         <FilterCard />
                     </div>
                     {
                         filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                <div className='grid grid-cols-3 gap-4'>
+                            <div className='no-scrollbar flex-1 pb-5 lg:h-[88vh] lg:overflow-y-auto'>
+                                <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3'>
                                     {
                                         filterJobs.map((job) => (
                                             <motion.div
@@ -54,9 +59,10 @@ const Jobs = () => {
                     }
                 </div>
             </div>
-
-
+            <Footer />
         </div>
+        
+        
     )
 }
 

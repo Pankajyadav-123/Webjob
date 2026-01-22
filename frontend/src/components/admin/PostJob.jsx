@@ -9,7 +9,6 @@ import axios from 'axios'
 import { JOB_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
-import { Loader2 } from 'lucide-react'
 
 const companyArray = [];
 
@@ -22,7 +21,7 @@ const PostJob = () => {
         location: "",
         jobType: "",
         experience: "",
-        position: 0,
+        position: "",
         companyId: ""
     });
     const [loading, setLoading]= useState(false);
@@ -34,15 +33,26 @@ const PostJob = () => {
     };
 
     const selectChangeHandler = (value) => {
-        const selectedCompany = companies.find((company)=> company.name.toLowerCase() === value);
-        setInput({...input, companyId:selectedCompany._id});
+        // value is companyId
+        setInput({ ...input, companyId: value });
     };
 
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post(`${JOB_API_END_POINT}/post`, input,{
+            const salaryNumber = Number(String(input.salary).replace(/,/g, '').trim());
+            if (!Number.isFinite(salaryNumber)) {
+                toast.error("Please enter a valid salary (numbers only).");
+                return;
+            }
+            const payload = {
+                ...input,
+                salary: salaryNumber,
+                experience: Number(input.experience),
+                position: Number(input.position),
+            };
+            const res = await axios.post(`${JOB_API_END_POINT}/post`, payload,{
                 headers:{
                     'Content-Type':'application/json'
                 },
@@ -53,7 +63,8 @@ const PostJob = () => {
                 navigate("/admin/jobs");
             }
         } catch (error) {
-            toast.error(error.response.data.message);
+            console.log(error);
+            toast.error(error?.response?.data?.message || "Failed to post job");
         } finally{
             setLoading(false);
         }
@@ -62,9 +73,9 @@ const PostJob = () => {
     return (
         <div>
             <Navbar />
-            <div className='flex items-center justify-center w-screen my-5'>
-                <form onSubmit = {submitHandler} className='p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md'>
-                    <div className='grid grid-cols-2 gap-2'>
+            <div className='flex items-center justify-center w-full my-5 px-4'>
+                <form onSubmit = {submitHandler} className='p-4 sm:p-8 w-full max-w-4xl border border-gray-200 shadow-lg rounded-md'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                         <div>
                             <Label>Title</Label>
                             <Input
@@ -148,17 +159,20 @@ const PostJob = () => {
                         {
                             companies.length > 0 && (
                                 <Select onValueChange={selectChangeHandler}>
-                                    <SelectTrigger className="w-[180px]">
+                                    <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Select a Company" />
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectGroup>
                                             {
-                                                companies.map((company) => {
-                                                    return (
-                                                        <SelectItem value={company?.name?.toLowerCase()}>{company.name}</SelectItem>
-                                                    )
-                                                })
+                                                companies.map((company) => (
+                                                    <SelectItem
+                                                        key={company._id}
+                                                        value={company._id}
+                                                    >
+                                                        {company.name}
+                                                    </SelectItem>
+                                                ))
                                             }
 
                                         </SelectGroup>
@@ -168,7 +182,7 @@ const PostJob = () => {
                         }
                     </div> 
                     {
-                        loading ? <Button className="w-full my-4"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-4">Post New Job</Button>
+                        <Button type="submit" className="w-full my-4">Post New Job</Button>
                     }
                     {
                         companies.length === 0 && <p className='text-xs text-red-600 font-bold text-center my-3'>*Please register a company first, before posting a jobs</p>
