@@ -141,7 +141,7 @@ const Navbar = () => {
                                             <Button variant="outline" className="w-full">Login</Button>
                                         </Link>
                                         <Link to="/signup" onClick={() => setMobileOpen(false)}>
-                                            <Button className="w-full bg-[#FFFF00] text-black hover:bg-[#FFFFE0]">Signup</Button>
+                                            <Button className="w-full bg-[#007BFF] text-black hover:bg-[#FFFFE0]">Signup</Button>
                                         </Link>
                                     </>
                                 ) : (
