@@ -19,20 +19,9 @@ const _dirname = path.resolve();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-const allowedOrigins = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'https://webjob-ye4b.onrender.com',
-];
-
 const corsOptions = {
-    origin: (origin, callback) => {
-        // allow non-browser tools (no Origin header)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) return callback(null, true);
-        return callback(new Error(`CORS blocked for origin: ${origin}`), false);
-    },
-    credentials: true,
+    origin:'localhost:5173',
+    credentials:true
 }
 
 app.use(cors(corsOptions));
