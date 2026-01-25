@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'localhost:5173',
+    origin:'https://webjob-1.onrender.com',
     credentials:true
 }
 
