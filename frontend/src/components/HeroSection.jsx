@@ -18,8 +18,8 @@ const HeroSection = () => {
     return (
         <div className='text-center px-4'>
             <div className='flex flex-col gap-5 my-10 '>
-                <span className=' mx-auto px-4 py-2 rounded-full bg-[#FFFF00] text-black font-medium'>India's Most Trusted Job Platform</span>
-                <h1 className='text-3xl md:text-5xl font-bold'>Discover Oppertunities<br /> Apply Easily Get<span className='text-[#FFFF00]'>Hired Fast</span></h1>
+                <span className=' mx-auto px-4 py-2 rounded-full bg-[#007BFF] text-black font-medium'>India's Most Trusted Job Platform</span>
+                <h1 className='text-3xl md:text-5xl font-bold'>Discover Oppertunities<br /> Apply Easily Get<span className='text-[#007BFF]'>Hired Fast</span></h1>
                 <p>Oppertunities that fit your skills Success that matches your ambition</p>
                 <div className='flex w-full max-w-xl shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto '>
                     <input
@@ -29,7 +29,7 @@ const HeroSection = () => {
                         className='outline-none border-none w-full '
 
                     />
-                    <Button onClick={searchJobHandler} className="rounded-r-full bg-[#FFFF00] text-black">
+                    <Button onClick={searchJobHandler} className="rounded-r-full bg-[#007BFF] text-black">
                         <Search className='h-5 w-5' />
                     </Button>
                 </div>

@@ -66,7 +66,7 @@ const Job = ({ job }) => {
                 >
                     Details
                 </Button>
-                <Button className="w-full bg-[#FFFF00] text-black hover:bg-white sm:w-auto">
+                <Button className="w-full bg-[#007BFF] text-black hover:bg-white sm:w-auto">
                     Save For Later
                 </Button>
             </div>

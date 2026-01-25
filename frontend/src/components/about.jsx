@@ -13,7 +13,7 @@ const AboutPage = () => {
                 <div className="max-w-5xl mx-auto text-center">
                     
                     <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                        We’re redefining the <span className="text-[yellow]">future of work.</span>
+                        We’re redefining the <span className="text-[#007BFF]">future of work.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-3xl mx-auto">
                         Hire Sphere started with a simple idea: the best talent shouldn't be hard to find, and the best companies shouldn't be hard to join. We bridge that gap.

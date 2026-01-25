@@ -148,7 +148,7 @@ const Signup = () => {
                         </div>
                     </div>
                     {
-                        <Button type="submit" className="w-full my-4 bg-[yellow] text-black hover:bg-[#FFFFE0]" >Signup</Button>
+                        <Button type="submit" className="w-full my-4 bg-[#007BFF] text-black hover:bg-[#FFFFE0]" >Signup</Button>
                     }
                     <span className='text-sm'>Already have an account? <Link to="/login" className='text-blue-600'>Login</Link></span>
                 </form>

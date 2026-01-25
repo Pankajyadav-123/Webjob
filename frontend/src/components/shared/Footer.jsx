@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-slate-900 text-2xl font-bold">
              
-              <span>Hire<span className="text-[yellow]">Sphere</span></span>
+              <span>Hire<span className="text-[#007BFF]">Sphere</span></span>
             </div>
             <p className="text-sm leading-relaxed">
               Connecting the world's best talent with the most innovative companies. Your next career move starts here.
@@ -62,7 +62,7 @@ const Footer = () => {
                 placeholder="Email address" 
                 className="bg-slate-50 border border-slate-200 text-slate-900 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition-all placeholder:text-slate-400"
               />
-              <button className="bg-[yellow] hover:bg-yellow-200 text-black font-medium py-2 rounded-lg transition-all shadow-sm active:scale-[0.98]" >
+              <button className="bg-[#007BFF] hover:bg-[blue]-200 text-black font-medium py-2 rounded-lg transition-all shadow-sm active:scale-[0.98]" >
                 Subscribe
               </button>
             </form>

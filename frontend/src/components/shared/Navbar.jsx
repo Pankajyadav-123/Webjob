@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className='sticky top-0 z-50 bg-white'>
             <div className='flex items-center justify-between mx-auto max-w-7xl h-16 px-4'>
                 <div>
-                    <h1 className='text-2xl font-bold'>Hire<span className='text-[#FFFF00]'> Sphere</span></h1>
+                    <h1 className='text-2xl font-bold'>Hire<span className='text-[#007BFF]'> Sphere</span></h1>
                 </div>
                 <div className='flex items-center gap-4 md:gap-8'>
                     <ul className='hidden md:flex font-medium items-center gap-5'>
@@ -61,7 +61,7 @@ const Navbar = () => {
                             !user ? (
                                 <>
                                     <Link to="/login"><Button variant="outline" size="sm">Login</Button></Link>
-                                    <Link to="/signup"><Button size="sm" className="bg-[#FFFF00] text-black hover:bg-[#FFFFE0]">Signup</Button></Link>
+                                    <Link to="/signup"><Button size="sm" className="bg-[#007BFF] text-black hover:bg-[#FFFFE0]">Signup</Button></Link>
                                 </>
                             ) : (
                                 <Popover>
