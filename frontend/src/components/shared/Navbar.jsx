@@ -61,7 +61,7 @@ const Navbar = () => {
                             !user ? (
                                 <>
                                     <Link to="/login"><Button variant="outline" size="sm">Login</Button></Link>
-                                    <Link to="/signup"><Button size="sm" className="bg-[#007BFF] text-black hover:bg-[#FFFFE0]">Signup</Button></Link>
+                                    <Link to="/signup"><Button size="sm" className="bg-[#007BFF] text-white hover:bg-blue-600">Signup</Button></Link>
                                 </>
                             ) : (
                                 <Popover>
@@ -141,7 +141,7 @@ const Navbar = () => {
                                             <Button variant="outline" className="w-full">Login</Button>
                                         </Link>
                                         <Link to="/signup" onClick={() => setMobileOpen(false)}>
-                                            <Button className="w-full bg-[#007BFF] text-black hover:bg-[#FFFFE0]">Signup</Button>
+                                            <Button className="w-full bg-[#007BFF] text-white hover:bg-blue-600">Signup</Button>
                                         </Link>
                                     </>
                                 ) : (

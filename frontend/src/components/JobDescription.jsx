@@ -64,7 +64,7 @@ const JobDescription = () => {
                 <Button
                 onClick={isApplied ? null : applyJobHandler}
                     disabled={isApplied}
-                    className={`rounded-lg ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#007BFF] text-black hover:bg-[#007BFF]'}`}>
+                    className={`rounded-lg ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#007BFF] text-white hover:bg-blue-600'}`}>
                     {isApplied ? 'Already Applied' : 'Apply Now'}
                 </Button>
             </div>

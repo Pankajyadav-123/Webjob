@@ -106,7 +106,7 @@ const Login = () => {
                         </RadioGroup>
                     </div>
                     {
-                        <Button type="submit" className="w-full my-4 bg-[#007BFF] text-black hover:bg-[#FFFFE0]" loading={loading}>Login</Button>
+                        <Button type="submit" className="w-full my-4 bg-[#007BFF] text-white hover:bg-blue-600" loading={loading}>Login</Button>
                     }
                     <span className='text-sm'>Don't have an account? <Link to="/signup" className='text-blue-600'>Signup</Link></span>
                 </form>
